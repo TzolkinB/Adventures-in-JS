@@ -14,9 +14,7 @@ function startup() {
 };
 window.addEventListener('load', startup);
 
-function clickYes() {
-  //document.getElementById('yes');
-  console.log('you clicked green!');
+function getBook(liked) {
 
   fetch('http://crash.queencityiron.com/book')
     // once we hear back, then do something with the response
@@ -25,7 +23,7 @@ function clickYes() {
     })
     .then(function logIt(book) {
       // the argument 'book' is the new book shown in the app
-      console.log(book);
+      //console.log('JSON book information:',book);
       let titleBox = document.querySelector('#info >  h2');
       titleBox.textContent = book.title;
 
@@ -35,16 +33,23 @@ function clickYes() {
       let bookCover = document.querySelector('main > img');
       bookCover.src = book.cover;
 
-      console.log('Since you love it, we bought it for you!');
-      console.log('Your account was charged $' + book.price);
+      if (liked) {
+        console.log('Since you love it, we bought it for you!');
+        console.log('Your account was charged $' + book.price);
+      }
+      else {
+        console.log('Sorry. Try this one.');
+      }
     });
 };
 
 function clickNo() {
-  //document.getElementById('no');
-  console.log('too bad');
+  console.log('red button');
+  getBook(false);
 };
 
+function clickYes() {
+  console.log('you clicked green!');
+  getBook(true);
+};
 
-//url: crash.queencityiron.com/book
-//using API FETCH
