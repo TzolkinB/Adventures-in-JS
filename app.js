@@ -16,9 +16,22 @@ window.addEventListener('load', startup);
 function clickYes() {
 //  document.getElementById('yes');
   console.log('you clicked green!');
+  fetch('http://crash.queencityiron.com/book')
+    // once we hear back, then do something with the response
+    .then(function readJSON(response) {
+      return response.json();
+    })
+    .then(function logIt(book) {
+      // the argument 'book' is the new book shown in the app
+      console.log(book);
+    });
 };
 
 function clickNo() {
 //  document.getElementById('no');
   console.log('too bad');
 };
+
+
+//url: crash.queencityiron.com/book
+//using API FETCH
