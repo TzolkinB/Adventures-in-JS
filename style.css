@@ -9,7 +9,7 @@ header h1 {
 }
 
 main img {
-    width: 100%;
+    width: auto;
 }
 
 #info h2 {
