@@ -1,8 +1,6 @@
 // Variable are names that we give to data.
 // Functions are names that we give to data.
-//document.getElementById()
-//synatx example: window.addEventListener('load', sayHi);
-// ^ above code means on load run function sayHi
+//document.querySelector() is more popular than document.getElementById()
 
 function startup() {
   console.log('hello');
@@ -12,7 +10,16 @@ function startup() {
   let redButton = document.querySelector('#no');
   redButton.addEventListener('click', clickNo);
 };
-window.addEventListener('load', startup);
+
+function clickNo() {
+  console.log('red button');
+  getBook(false);
+};
+
+function clickYes() {
+  console.log('you clicked green!');
+  getBook(true);
+};
 
 function getBook(liked) {
 
@@ -40,16 +47,12 @@ function getBook(liked) {
       else {
         console.log('Sorry. Try this one.');
       }
+      
+        // Add a new class to an element
+        // bookCover.classList.add('cool-class');
+        // bookCover.setAttribute('id', 'cover-image');
     });
 };
 
-function clickNo() {
-  console.log('red button');
-  getBook(false);
-};
 
-function clickYes() {
-  console.log('you clicked green!');
-  getBook(true);
-};
-
+window.addEventListener('load', startup);
